@@ -1,0 +1,193 @@
+.appointment_page_user{
+    width: 99%;
+    height: fit-content;
+    padding: 10px 0;
+    margin: 0;
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.appointment_box{
+    width: 100%;
+    border-radius: 4px;
+    margin-top: 8px;
+    height: fit-content;
+    min-height: fit-content;
+    padding: 10px 0;
+    background-color: rgb(255, 255, 255);
+    background-color: rgba(43, 174, 102, 0.986);
+    background-color: rgba(0, 0, 75, 0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 200ms ease;
+    position: relative;
+    overflow: hidden;
+}
+.appointment_box_top{
+    width: 100%;
+    height: fit-content;
+    position: absolute;
+    position: relative;
+    padding: 2px 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.appointment_box_top_img{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.appointment_box_top_img img{
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: black;
+}
+.appointment_box_top_data{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 70%;
+}
+.appointment_box_top_data h2{
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    margin-right: 10px;
+}
+.appointment_box_top_data h3{
+    font-family: 'Rubik', sans-serif;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    margin-top: 4px;
+    color: rgb(255, 255, 255);
+    margin-right: 10px;
+}
+.appointment_box_top_data h4{
+    color: rgb(219, 219, 219);
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    margin-top: 4px;
+    margin-right: 10px;
+}
+.appointment_box_middle{
+    width: 100%;
+    height: 50px;
+    min-height: 50px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.appointment_box_middle button{
+    margin: 0;
+    padding: 0;
+    margin-top: 10px;
+    margin-right: 10px;
+    outline: none;
+    border: none;
+    width: fit-content;
+    padding: 4px 4px;
+    color: white;
+    border-radius: 3px;
+    background-color: rgba(65, 65, 160, 1);
+    transition: all 200ms ease;
+}
+.appointment_box_middle button:hover{
+    opacity: 0.7;
+}
+.appointment_box_end{
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    min-height: fit-content;
+    margin: 0;
+    padding: 0;
+    margin-top: 30px;
+}
+.appointment_box_select{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+#box{
+    width: 100%;
+}
+.appointment_box_select .but{
+   margin: 5px;
+}
+.appointment_box_end_final_submit{
+    width: 100%;
+    margin-top: 5px;
+    height: 50px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: fit-content;
+}
+.appointment_box_end_final_submit button{
+    margin: 0;
+    padding: 0;
+    margin-top: 10px;
+    margin-right: 10px;
+    outline: none;
+    border: none;
+    width: fit-content;
+    padding: 5px 5px;
+    color: white;
+    border-radius: 3px;
+    background-color: rgba(65, 65, 160, 1);
+    transition: all 200ms ease;
+}
+.appointment_box_end_final_submit button:hover{
+    opacity: 0.7;
+}
+.turn_box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px 0;
+    width: 100%;
+}
+.turn_box h4{
+    font-size: 14px;
+    color: rgb(207, 0, 0);
+    font-family: 'Rubik', sans-serif;
+}
+@media only screen and (max-width: 900px){
+    .appointment_box_top_img{
+        width: 100%;
+    }
+    .appointment_box_top_data{
+        margin-top: 5px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+    }
+    .appointment_box_top_data h2{
+        margin-right: 0;
+    }
+    .appointment_box_top_data h3{
+        margin-right: 0;
+    }
+    .appointment_box_top_data h4{
+        margin-right: 0;
+    }
+}
