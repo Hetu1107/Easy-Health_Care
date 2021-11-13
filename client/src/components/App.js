@@ -7,12 +7,11 @@ import Web3 from "web3";
 import Login from "./Register/Login";
 import SignUp from "./Register/SignUp";
 import Chat from "./Chat";
-
+import Predictor from "./Predictor/Predictor";
 function App() {
   const [account, setAccount] = useState("");
   const [loading, setLoading] = useState(true);
   const [hospital, setHospital] = useState("");
-
   useEffect(() => {
     loadWeb3();
     loadBlockChain();
@@ -86,6 +85,9 @@ function App() {
           </Route>
           <Route exact path="/chat">
             <Chat />
+          </Route>
+          <Route exact path="/pre">
+            <Predictor />
           </Route>
         </Switch>
       </Router>

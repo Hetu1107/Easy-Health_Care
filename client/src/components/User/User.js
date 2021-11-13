@@ -5,10 +5,12 @@ import YourActivity from "./YourActivity";
 import "../../style/User.css";
 import src from "../../assets/images/nav.svg";
 import AppointMentAdmin from "./AppointMentAdmin";
+import Predictor from "../Predictor/Predictor";
 
 let drop = false;
 let id = "one_div";
 function User(props) {
+  const [modalShow, setModalShow] = React.useState(false);
   const [select, setSelect] = useState(
     // <AppointMentAdmin/>
     <Appointment hospital={props.hospital} account={props.account} />
@@ -26,6 +28,7 @@ function User(props) {
   }
   return (
     <div className="Profile_page_of_users">
+    <Predictor show={modalShow} onHide={() => setModalShow(false)} />
       <div className="Profile_page_of_users_heading" id="profile_head">
         <div
           className="Profile_page_of_users_top_head"
@@ -68,7 +71,7 @@ function User(props) {
           <div className="Profile_page_of_users_middle_head">
             <div className="Profile_page_of_users_middle_head_div_one">
               <button>Global-Chat</button>
-              <button>Predictor</button>
+              <button onClick={()=>setModalShow(true)}>Predictor</button>
             </div>
             <div className="Profile_page_of_users_middle_head_div_two">
               <button>
@@ -88,8 +91,12 @@ function User(props) {
                 document.getElementById(id).classList.remove("active");
                 document.getElementById("one_div").classList.add("active");
                 id = "one_div";
-                setSelect(<Appointment />);
-                // setSelect(<AppointMentAdmin/>)
+                setSelect(
+                  <Appointment
+                    hospital={props.hospital}
+                    account={props.account}
+                  />
+                );
               }
             }}
           >
@@ -102,7 +109,12 @@ function User(props) {
                 document.getElementById(id).classList.remove("active");
                 document.getElementById("two_div").classList.add("active");
                 id = "two_div";
-                setSelect(<PrivateChat />);
+                setSelect(
+                  <PrivateChat
+                    hospital={props.hospital}
+                    account={props.account}
+                  />
+                );
               }
             }}
           >
@@ -115,7 +127,12 @@ function User(props) {
                 document.getElementById(id).classList.remove("active");
                 document.getElementById("three_div").classList.add("active");
                 id = "three_div";
-                setSelect(<YourActivity />);
+                setSelect(
+                  <YourActivity
+                    hospital={props.hospital}
+                    account={props.account}
+                  />
+                );
               }
             }}
           >

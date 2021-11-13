@@ -3,8 +3,11 @@ import "../../style/Nav.css";
 import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import src from "../../assets/images/nav.svg";
+import Predictor from "../Predictor/Predictor";
 
 function MainNav() {
+  const [modalShow, setModalShow] = React.useState(false);
+
   return (
     <Navbar
       collapseOnSelect
@@ -15,6 +18,7 @@ function MainNav() {
       fixed="top"
       className="navbar"
     >
+    <Predictor show={modalShow} onHide={() => setModalShow(false)} />
       <Container className="navbar">
         <Navbar.Brand>
           <img src={src} id="nav-image" />
@@ -25,7 +29,7 @@ function MainNav() {
             <Nav.Link className="nav_item">
               <Link to="/">Home</Link>
             </Nav.Link>
-            <Nav.Link className="nav_item">
+            <Nav.Link className="nav_item" onClick={() => setModalShow(true)}>
               <Link to="/">Predictor</Link>
             </Nav.Link>
             <Nav.Link className="nav_item">
