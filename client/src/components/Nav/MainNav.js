@@ -40,7 +40,7 @@ function MainNav() {
           </Nav>
           <Nav className="right_side_navbar">
             <Nav.Link className="nav_item">
-              <Link to="user">
+              <Link to="/login">
                 {" "}
                 <i class="fas fa-user"></i> - Login
               </Link>

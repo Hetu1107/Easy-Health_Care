@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Home from "./Home/Home";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import User from "./User/User";
 import Hospital from "../abis/Hospital.json";
 import Web3 from "web3";
+import Login from "./Register/Login";
+import SignUp from "./Register/SignUp";
 import Chat from "./Chat";
+
 function App() {
   const [account, setAccount] = useState("");
   const [loading, setLoading] = useState(true);
@@ -69,16 +72,23 @@ function App() {
 
   return (
     <div className="main_app">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route
-            path="/user"
-            element={<User hospital={hospital} account={account} />}
-          />
-          <Route path="/chat" element={<Chat/>}/>
-        </Routes>
-      </BrowserRouter>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/user">
+            <User hospital={hospital} account={account} />
+          </Route>
+          <Route exact path="/login">
+            <Login hospital={hospital} account={account} />
+          </Route>
+          <Route exact path="/signup">
+            <SignUp hospital={hospital} account={account} />
+          </Route>
+          <Route exact path="/chat">
+            <Chat />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
