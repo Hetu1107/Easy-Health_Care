@@ -71,7 +71,7 @@ io.on("connection", (socket) => {
       user[roomId]++;
     }
     console.log(user[roomId]);
-    io.to(roomId).emit("user-connected", userId, user);
+    socket.broadcast.to(roomId).emit("user-connected", userId, user);
 
     socket.on("disconnect", () => {
       console.log("user left", userId);
@@ -92,20 +92,20 @@ io.on("connection", (socket) => {
     socket.emit("check", user);
   });
 
-  socket.on("activate-room", (roomId, userId) => {
-    console.log("room activated", roomId);
-    activated[roomId] = true;
-  });
-  socket.on("get-activated", () => {
-    socket.emit("active", activated);
-  });
+  // socket.on("activate-room", (roomId, userId) => {
+  //   console.log("room activated", roomId);
+  //   activated[roomId] = true;
+  // });
+  // socket.on("get-activated", () => {
+  //   socket.emit("active", activated);
+  // });
 
-  socket.on("room-deactivate", (roomId) => {
-    delete activated[roomId];
-    user[roomId] = undefined;
-    io.to(roomId).emit("deactivate", activated);
-    socket.leave(roomId);
-  });
+  // socket.on("room-deactivate", (roomId) => {
+  //   delete activated[roomId];
+  //   user[roomId] = undefined;
+  //   io.to(roomId).emit("deactivate", activated);
+  //   socket.leave(roomId);
+  // });
 
   socket.on("send-request", (roomId, userId) => {
     console.log("requested for entry", roomId);
@@ -119,10 +119,14 @@ io.on("connection", (socket) => {
   });
 
   socket.on("leave-room", (roomId, userId) => {
-    console.log("left the room", roomId);
+    console.log("left the room", roomId, userId);
     socket.leave(roomId);
     user[roomId]--;
     socket.emit("room-left", userId);
+  });
+
+  socket.on("chat", (roomId, payload) => {
+    io.to(roomId).emit("chat", payload);
   });
 });
 
