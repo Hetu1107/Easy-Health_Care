@@ -4,11 +4,13 @@ import PrivateChat from "./PrivateChat";
 import YourActivity from "./YourActivity";
 import "../../style/User.css";
 import src from "../../assets/images/nav.svg";
+import AppointMentAdmin from "./AppointMentAdmin";
 
 let drop = false;
 let id = "one_div";
 function User(props) {
   const [select, setSelect] = useState(
+    // <AppointMentAdmin/>
     <Appointment hospital={props.hospital} account={props.account} />
   );
   function dropDown() {
