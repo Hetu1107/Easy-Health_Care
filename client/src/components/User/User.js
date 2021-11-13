@@ -1,15 +1,16 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import Appointment from "./Appointment";
 import PrivateChat from "./PrivateChat";
 import YourActivity from "./YourActivity";
-import '../../style/User.css'
-import src from '../../assets/images/nav.svg'
-
+import "../../style/User.css";
+import src from "../../assets/images/nav.svg";
 
 let drop = false;
 let id = "one_div";
-function User() {
-  const [select, setSelect] = useState(<Appointment/>);
+function User(props) {
+  const [select, setSelect] = useState(
+    <Appointment hospital={props.hospital} account={props.account} />
+  );
   function dropDown() {
     if (!drop) {
       document.getElementById("profile_head").style.height = "320px";
@@ -29,7 +30,9 @@ function User() {
           onClick={() => dropDown()}
         >
           <div className="Profile_page_of_users_top_head_name">
-            <h2><img src={src}/></h2>
+            <h2>
+              <img src={src} />
+            </h2>
           </div>
           <div className="Profile_page_of_users_top_head_dropdown">
             <i class="fas fa-chevron-down" id="drop_icon"></i>
@@ -83,7 +86,7 @@ function User() {
                 document.getElementById(id).classList.remove("active");
                 document.getElementById("one_div").classList.add("active");
                 id = "one_div";
-                setSelect(<Appointment/>);
+                setSelect(<Appointment />);
               }
             }}
           >
@@ -96,7 +99,7 @@ function User() {
                 document.getElementById(id).classList.remove("active");
                 document.getElementById("two_div").classList.add("active");
                 id = "two_div";
-                setSelect(<PrivateChat/>);
+                setSelect(<PrivateChat />);
               }
             }}
           >
@@ -109,7 +112,7 @@ function User() {
                 document.getElementById(id).classList.remove("active");
                 document.getElementById("three_div").classList.add("active");
                 id = "three_div";
-                setSelect(<YourActivity/>);
+                setSelect(<YourActivity />);
               }
             }}
           >
