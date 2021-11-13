@@ -6,6 +6,7 @@ import Hospital from "../abis/Hospital.json";
 import Web3 from "web3";
 import Login from "./Register/Login";
 import SignUp from "./Register/SignUp";
+import Chat from "./Chat";
 
 function App() {
   const [account, setAccount] = useState("");
@@ -82,6 +83,9 @@ function App() {
           </Route>
           <Route exact path="/signup">
             <SignUp hospital={hospital} account={account} />
+          </Route>
+          <Route exact path="/chat">
+            <Chat />
           </Route>
         </Switch>
       </Router>
