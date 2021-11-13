@@ -25,8 +25,9 @@ body {
   min-height: 100vh;
   height: fit-content;
   flex-direction: column;
-  background: rgb(255,255,255);
-background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(252,252,255,1) 45%, rgba(244,247,255,1) 100%);
+  /* background: rgb(129, 121, 121)1); */
+/* background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(252,252,255,1) 45%, rgba(244,247,255,1) 100%); */
+background-color: #1a2035;
 }
 .carousel{
     margin-top: 58px;
@@ -62,14 +63,17 @@ background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(252,252,255,1) 
     height: fit-content;
     width: 95vw;
     padding: 5px 0;
-    background-color: rgba(65, 65, 160, 0.7);
+  background: linear-gradient(
+60deg,#288c6c,#4ea752);
+  box-shadow: 0 4px 20px 0 rgb(0 0 0 / 14%),
+    0 7px 10px -5px rgb(156 39 176 / 40%);
     border-radius: 4px;
 }
 .main_frontend_middle_center h1{
     font-size: 40px;
     font-family: 'Poppins', sans-serif;
     margin-left: 10px;
-    font-weight: 600;
+    font-weight: 400;
     color: rgb(255, 255, 255);
 }
 .main_frontend_middle_center h1 span{
@@ -85,7 +89,9 @@ background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(252,252,255,1) 
     position: relative;
     text-align: left;
     margin-bottom: 50px;
-    background-color: rgba(0, 0, 75, 0.3);
+    background-color: rgb(32, 41, 64);
+  background: #202940;
+  box-shadow: 0 1px 4px 0 rgb(0 0 0 / 14%);
     padding: 5px 1vw;
     margin-top: 5px;
     border-radius: 4px;
@@ -93,11 +99,11 @@ background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(252,252,255,1) 
 .main_frontend_middle_text h3{
     padding: 0;
     margin: 0;
-    font-size: 16px;
-    font-family: 'Rubik', sans-serif;
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
     font-weight: 400;
     margin-top: 10px;
-    color: rgba(0, 0, 0, 0.897);
+    color: rgba(255, 255, 255, 0.747);
 }
 .main_frontend_middle_text img{
     width: 200px;
@@ -134,10 +140,12 @@ background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(252,252,255,1) 
     position: relative;
     text-align: left;
     margin-bottom: 50px;
-    background-color: rgba(0, 0, 75, 0.3);
     padding: 5px 1vw;
     margin-top: 5px;
     border-radius: 4px;
+    background-color: rgb(32, 41, 64);
+    background: #202940;
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 14%);
   }
   .about_app_div{
       width: 95vw;
@@ -148,7 +156,7 @@ background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(252,252,255,1) 
       align-items: center;
   }
   .about_app_div li{
-    color: rgba(0, 0, 0, 0.811);
+    color: rgba(255, 255, 255, 0.747);
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
     font-size: 16px;
@@ -176,7 +184,7 @@ background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(252,252,255,1) 
       padding: 0.2px 0;
       border-radius: 100px;
       margin: 20px 0;
-      background-color: rgba(0, 0, 0, 0.349);
+      background-color: rgba(255, 255, 255, 0.349);
   }
 .main_workings_of_app{
     width: 100vw;
@@ -194,6 +202,13 @@ background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(252,252,255,1) 
     height: 100px;
     border-radius: 50%;
     background-color: #00000054;
+    background-image: linear-gradient(
+    60deg,
+    rgb(123, 31, 162),
+    rgb(145, 63, 158)
+  );
+  box-shadow: 0 4px 20px 0 rgb(0 0 0 / 14%),
+    0 7px 10px -5px rgb(156 39 176 / 40%);
     display: flex;
     align-items: center;
     text-align: center;
@@ -236,7 +251,10 @@ background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(252,252,255,1) 
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: rgba(65, 65, 160, 0.8);
+    background: linear-gradient(
+60deg,#288c6c,#4ea752);
+  box-shadow: 0 4px 20px 0 rgb(0 0 0 / 14%),
+    0 7px 10px -5px rgb(156 39 176 / 40%);
 }
 .contact_us_form_head h1{
     font-size: 40px;
@@ -251,23 +269,28 @@ background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(252,252,255,1) 
     border-radius: 5px; 
     margin-top: 10px;
     background-color: rgba(0, 0, 75, 0.3);
+    background-color: rgb(32, 41, 64);
+    background: #202940;
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 14%);
 }
 .form-label{
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   opacity: 0.8;
 }
 .form-control{
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(32, 41, 64);
+    background: #1c2336;
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 14%);
   border:none;
   opacity: 1;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
 }
 
 .form-control:focus{
   border: none;
   outline: none;
-  background-color: rgb(255, 255, 255);
-  color: rgb(0, 0, 0);
+  background-color: rgba(255, 255, 255, 0);
+  color: rgb(255, 255, 255);
 }
 #front_submit{
   width: 100%;
@@ -338,6 +361,10 @@ background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(252,252,255,1) 
       color: white;
       margin: 10px 0;
       background-color: rgba(65, 65, 160, 0.7);
+      background: linear-gradient(
+60deg,#288c6c,#4ea752);
+  box-shadow: 0 4px 20px 0 rgb(0 0 0 / 14%),
+    0 7px 10px -5px rgb(156 39 176 / 40%);
       padding: 10px 1vw;
       border-radius: 4px;
   }
@@ -347,18 +374,20 @@ background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(252,252,255,1) 
   .accordion .accordion-item {
       padding: 10px 0;
     border-bottom: 1px solid #0000002f;
-    background-color: rgba(0, 0, 75, 0.3);
+    background-color: rgb(32, 41, 64);
+    background: #202940;
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 14%);
   }
   
   .accordion .accordion-item button[aria-expanded='true'] {
-    border-bottom: 1px solid #000000;
+    border-bottom: 1px solid #ffffff;
   }
   .accordion button {
     position: relative;
     display: block;
     text-align: left;
     width: 100%;
-    color: #000000b4;
+    color: #ffffffb4;
     font-weight: 400;
     border: none;
     background: none;
@@ -368,14 +397,14 @@ background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(252,252,255,1) 
   .accordion button:hover,
   .accordion button:focus {
     cursor: pointer;
-    color: #000000;
+    color: #ffffff;
   }
   
   .accordion button:hover::after,
   .accordion button:focus::after {
     cursor: pointer;
-    color: #252525;
-    border: 1px solid #000000;
+    color: #adadad;
+    border: 1px solid #ffffff;
   }
   
   
@@ -412,7 +441,7 @@ background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(252,252,255,1) 
   }
   
   .accordion button[aria-expanded='true'] {
-    color: #000000;
+    color: #ffffff;
   }
   .accordion button[aria-expanded='true'] .icon::after {
     width: 0;
@@ -433,5 +462,5 @@ background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(252,252,255,1) 
   .accordion .accordion-content p {
     font-weight: 300;
     margin: 20px 5px;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
   }
