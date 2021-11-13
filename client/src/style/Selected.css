@@ -188,6 +188,60 @@
     font-weight: 200;
     font-size: 16px;
 }
+.Private_Chat_Div{
+    width: 99%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    padding: 5px 0;
+}
+.Private_Chat_Div_box{
+    border-radius: 4px;
+    margin: 5px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    padding: 5px 0;
+    background-color: rgb(32, 41, 64);
+  background: #202940;
+  box-shadow: 0 1px 4px 0 rgb(0 0 0 / 14%);
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+.Private_Chat_Div_box:hover{
+    box-shadow: 0 1px 4px 0 rgb(0, 0, 0);
+}
+.Private_Chat_Div_box div{
+    display: flex;
+    flex-direction: row;
+    padding: 4px 0;
+    justify-content: space-between;
+    height: fit-content;
+    flex-wrap: wrap;
+}
+.Private_Chat_Div_box div:nth-child(2){
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.Private_Chat_Div_box div h2{
+    color: white;
+    margin-right: 5px;
+    margin-left: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 100;
+}
+.Private_Chat_Div_box div h3{
+    font-size: 16px;
+    color: white;
+    margin-right: 10px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 10;
+}
+
 @media only screen and (max-width: 900px){
     .appointment_box_top_img{
         width: 100%;
@@ -208,4 +262,14 @@
     .appointment_box_top_data h4{
         margin-left: 0;
     }
+}
+@media only screen and (max-width: 300px){
+.Private_Chat_Div_box div{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+
 }
