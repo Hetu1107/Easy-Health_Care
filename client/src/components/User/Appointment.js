@@ -51,7 +51,7 @@ function Appointment(props) {
   const [account, setAccount] = useState(props.account);
 
   useEffect(async () => {
-    const time = await hospital.methods.time().call();
+    const time = await hospital?.methods?.time().call();
     setPredicted(time / 100);
   }, []);
 
@@ -59,7 +59,7 @@ function Appointment(props) {
     e.preventDefault();
     let account = props.account;
     let hospital = props.hospital;
-    let final = cough + "," + fever + "," + pain;
+    let final = "0,1,2";
     axios
       .post("/py", {
         message: final,
@@ -68,9 +68,10 @@ function Appointment(props) {
         let t = res.data.value;
         t = t.substring(0, 4);
         t = parseFloat(t);
+        t = Math.round(t);
         t = t * 100;
         t = parseInt(t);
-        console.log(t);
+        console.log("rounded", t);
         console.log(account, hospital);
         await hospital.methods
           .bookAppointments(t)
