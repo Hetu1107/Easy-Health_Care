@@ -241,10 +241,81 @@
     font-family: 'Rubik', sans-serif;
     font-weight: 10;
 }
-a{
-    /* width: 100%; */
-    /* height: fit-content; */
-}
+.appointment_admin_top{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: fit-content;
+  }
+  .appointment_admin_top div{
+    width: 100%;
+    padding: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: fit-content;
+  }
+  .appointment_admin_top div h2{
+    font-size: 20px;
+    color: white;
+    font-weight: 100;
+    font-family: 'Poppins', sans-serif;
+    margin: 5px;
+  }
+  .appointment_admin_top div h2:nth-child(1){
+      font-weight: 300;
+      font-size: 22px;
+  }
+  .appointment_admin_top div h2 span{
+      font-weight: 600;
+  }
+  .appointment_admin_top div:nth-child(2){
+      margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .appointment_admin_top div:nth-child(3){
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .appointment_admin_top div h3{
+    font-size: 15px;
+    color: white;
+    font-weight: 100;
+    font-family: 'Poppins', sans-serif;
+  }
+  .appointment_admin_top div h3 span{
+      font-weight: 300;
+      font-size: 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.212);
+  }
+  .appointment_admin_middle{
+    width: 100%;
+    padding: 5px 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .appointment_admin_middle button{
+    margin: 0;
+    padding: 0;
+    margin-top: 10px;
+    margin-right: 10px;
+    outline: none;
+    border: none;
+    width: fit-content;
+    padding: 5px 5px;
+    color: white;
+    border-radius: 3px;
+    background: linear-gradient(
+        60deg,#288c6c,#4ea752);
+    transition: all 200ms ease;
+  }
+  .appointment_admin_middle button:hover{
+      opacity: 0.7;
+  }
 @media only screen and (max-width: 900px){
     .appointment_box_top_img{
         width: 100%;
@@ -272,7 +343,16 @@ a{
     align-items: center;
     text-align: center;
 }
-
-
-
+}
+@media only screen and (max-width: 450px){
+    .appointment_admin_top div{
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        flex-direction: column;
+    }
+    .appointment_admin_top div h2{
+        margin: 0;
+        margin-top: 5px;
+    }
 }

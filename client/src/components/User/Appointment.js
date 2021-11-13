@@ -38,17 +38,6 @@ function Appointment(props) {
       tretments: "Laser, Alergy, Skin, Cosmetology",
       predicted,
     },
-    {
-      src: "https://www.pngall.com/wp-content/uploads/8/Hospital-PNG-Image-HD.png",
-      name: "Derma-Care Clinic",
-      doc_name: "Dr. Paresh Mehta",
-      Contact: "+91-265-2421182",
-      dayTime: "11:00 AM To 2:00 PM",
-      noonTime: "5:00 PM To 8:00 PM",
-      drQualification: "M.D.(SKIN & V.D)",
-      tretments: "Laser, Alergy, Skin, Cosmetology",
-      predicted,
-    },
   ];
 
   const [cough, setCough] = useState("Select");
