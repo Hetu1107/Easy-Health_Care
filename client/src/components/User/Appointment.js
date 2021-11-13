@@ -2,36 +2,13 @@ import React, { useEffect, useState } from "react";
 import "../../style/Selected.css";
 import axios from "axios";
 import { DropdownButton, Dropdown } from "react-bootstrap";
-const DataHospital = [
-  {
-    src: "https://www.pngall.com/wp-content/uploads/8/Hospital-PNG-Image-HD.png",
-    name: "Derma-Care Clinic",
-    doc_name: "Dr. Paresh Mehta",
-    Contact: "+91-265-2421182",
-    dayTime: "11:00 AM To 2:00 PM",
-    noonTime: "5:00 PM To 8:00 PM",
-    drQualification: "M.D.(SKIN & V.D)",
-    tretments: "Laser, Alergy, Skin, Cosmetology",
-  },
-  {
-    src: "https://www.pngall.com/wp-content/uploads/8/Hospital-PNG-Image-HD.png",
-    name: "Derma-Care Clinic",
-    doc_name: "Dr. Paresh Mehta",
-    Contact: "+91-265-2421182",
-    dayTime: "11:00 AM To 2:00 PM",
-    noonTime: "5:00 PM To 8:00 PM",
-    drQualification: "M.D.(SKIN & V.D)",
-    tretments: "Laser, Alergy, Skin, Cosmetology",
-  },
-];
-
 
 let box = false;
 const cough_item = [
   { type: "Select", count: 0 },
   { type: "No Cough & Cold", count: 0 },
   { type: "Moderate Cough & Cold", count: 1 },
-  { type: "Heavy Cough & Fever", count: 2 },
+  { type: "Heavy Cough & Cold", count: 2 },
 ];
 const fever_item = [
   { type: "Select", count: 0 },
@@ -49,8 +26,31 @@ const pain_item = [
 function Appointment(props) {
   const [predicted, setPredicted] = useState(0);
 
+  const DataHospital = [
+    {
+      src: "https://www.pngall.com/wp-content/uploads/8/Hospital-PNG-Image-HD.png",
+      name: "Derma-Care Clinic",
+      doc_name: "Dr. Paresh Mehta",
+      Contact: "+91-265-2421182",
+      dayTime: "11:00 AM To 2:00 PM",
+      noonTime: "5:00 PM To 8:00 PM",
+      drQualification: "M.D.(SKIN & V.D)",
+      tretments: "Laser, Alergy, Skin, Cosmetology",
+      predicted,
+    },
+    {
+      src: "https://www.pngall.com/wp-content/uploads/8/Hospital-PNG-Image-HD.png",
+      name: "Derma-Care Clinic",
+      doc_name: "Dr. Paresh Mehta",
+      Contact: "+91-265-2421182",
+      dayTime: "11:00 AM To 2:00 PM",
+      noonTime: "5:00 PM To 8:00 PM",
+      drQualification: "M.D.(SKIN & V.D)",
+      tretments: "Laser, Alergy, Skin, Cosmetology",
+      predicted,
+    },
+  ];
 
-  
   const [cough, setCough] = useState("Select");
   const [coughCount, setCoughCount] = useState(0);
   const [fever, setFever] = useState("Select");
@@ -62,7 +62,7 @@ function Appointment(props) {
   const [account, setAccount] = useState(props.account);
 
   useEffect(async () => {
-    const time = await hospital.methods.time().call();
+    const time = await hospital?.methods?.time().call();
     setPredicted(time / 100);
   }, []);
 
@@ -70,7 +70,7 @@ function Appointment(props) {
     e.preventDefault();
     let account = props.account;
     let hospital = props.hospital;
-    let final = cough + "," + fever + "," + pain;
+    let final = coughCount + "," + feverCount + "," + painCount;
     axios
       .post("/py", {
         message: final,
@@ -79,9 +79,10 @@ function Appointment(props) {
         let t = res.data.value;
         t = t.substring(0, 4);
         t = parseFloat(t);
+        t = Math.round(t);
         t = t * 100;
         t = parseInt(t);
-        console.log(t);
+        console.log("rounded", t);
         console.log(account, hospital);
         await hospital.methods
           .bookAppointments(t)
