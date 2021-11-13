@@ -91,8 +91,12 @@ function User(props) {
                 document.getElementById(id).classList.remove("active");
                 document.getElementById("one_div").classList.add("active");
                 id = "one_div";
-                setSelect(<Appointment />);
-                // setSelect(<AppointMentAdmin/>)
+                setSelect(
+                  <Appointment
+                    hospital={props.hospital}
+                    account={props.account}
+                  />
+                );
               }
             }}
           >
@@ -105,7 +109,12 @@ function User(props) {
                 document.getElementById(id).classList.remove("active");
                 document.getElementById("two_div").classList.add("active");
                 id = "two_div";
-                setSelect(<PrivateChat />);
+                setSelect(
+                  <PrivateChat
+                    hospital={props.hospital}
+                    account={props.account}
+                  />
+                );
               }
             }}
           >
@@ -118,7 +127,12 @@ function User(props) {
                 document.getElementById(id).classList.remove("active");
                 document.getElementById("three_div").classList.add("active");
                 id = "three_div";
-                setSelect(<YourActivity />);
+                setSelect(
+                  <YourActivity
+                    hospital={props.hospital}
+                    account={props.account}
+                  />
+                );
               }
             }}
           >
