@@ -241,7 +241,10 @@
     font-family: 'Rubik', sans-serif;
     font-weight: 10;
 }
-
+a{
+    /* width: 100%; */
+    /* height: fit-content; */
+}
 @media only screen and (max-width: 900px){
     .appointment_box_top_img{
         width: 100%;

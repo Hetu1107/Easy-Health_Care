@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import User from "./User/User";
 import Hospital from "../abis/Hospital.json";
 import Web3 from "web3";
-
+import Chat from "./Chat";
 function App() {
   const [account, setAccount] = useState("");
   const [loading, setLoading] = useState(true);
@@ -76,6 +76,7 @@ function App() {
             path="/user"
             element={<User hospital={hospital} account={account} />}
           />
+          <Route path="/chat" element={<Chat/>}/>
         </Routes>
       </BrowserRouter>
     </div>
