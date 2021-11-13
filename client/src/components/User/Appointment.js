@@ -1,52 +1,63 @@
 import React, { useEffect, useState } from "react";
 import "../../style/Selected.css";
-import { DropdownButton, Dropdown } from "react-bootstrap";
 import axios from "axios";
+import { DropdownButton, Dropdown } from "react-bootstrap";
+const DataHospital = [
+  {
+    src: "https://www.pngall.com/wp-content/uploads/8/Hospital-PNG-Image-HD.png",
+    name: "Derma-Care Clinic",
+    doc_name: "Dr. Paresh Mehta",
+    Contact: "+91-265-2421182",
+    dayTime: "11:00 AM To 2:00 PM",
+    noonTime: "5:00 PM To 8:00 PM",
+    drQualification: "M.D.(SKIN & V.D)",
+    tretments: "Laser, Alergy, Skin, Cosmetology",
+  },
+  {
+    src: "https://www.pngall.com/wp-content/uploads/8/Hospital-PNG-Image-HD.png",
+    name: "Derma-Care Clinic",
+    doc_name: "Dr. Paresh Mehta",
+    Contact: "+91-265-2421182",
+    dayTime: "11:00 AM To 2:00 PM",
+    noonTime: "5:00 PM To 8:00 PM",
+    drQualification: "M.D.(SKIN & V.D)",
+    tretments: "Laser, Alergy, Skin, Cosmetology",
+  },
+];
+
+
 let box = false;
 const cough_item = [
-  "Select",
-  "No Cough & Cold",
-  "Moderate Cough & Cold",
-  "Heavy Cough & Fever",
+  { type: "Select", count: 0 },
+  { type: "No Cough & Cold", count: 0 },
+  { type: "Moderate Cough & Cold", count: 1 },
+  { type: "Heavy Cough & Fever", count: 2 },
 ];
-const fever_item = ["Select", "No Fever", "Moderate Fever", "High Fever"];
+const fever_item = [
+  { type: "Select", count: 0 },
+  { type: "No Fever", count: 0 },
+  { type: "Moderate Fever", count: 1 },
+  { type: "High Fever", count: 2 },
+];
 const pain_item = [
-  "Select",
-  "No Pain in Body",
-  "Moderate Pain in Body",
-  "High Pain in Body",
+  { type: "Select", count: 0 },
+  { type: "No Pain in Body", count: 0 },
+  { type: "Moderate Pain in Body", count: 1 },
+  { type: "High Pain in Body", count: 2 },
 ];
 
 function Appointment(props) {
   const [predicted, setPredicted] = useState(0);
 
-  const DataHospital = [
-    {
-      src: "https://content3.jdmagicbox.com/comp/vadodara/n4/0265px265.x265.140723145818.i7n4/catalogue/dr-paresh-mehta-dermacare-clinic-raopura-vadodara-dermatologists-261ipok.jpg?clr=1c1c4a",
-      name: "Derma-Care Clinic",
-      doc_name: "Dr. Paresh Mehta",
-      Contact: "+91-265-2421182",
-      dayTime: "11:00 AM To 2:00 PM",
-      noonTime: "5:00 PM To 8:00 PM",
-      drQualification: "M.D.(SKIN & V.D)",
-      tretments: "Laser, Alergy, Skin, Cosmetology",
-      predicted,
-    },
-    {
-      src: "https://images1-fabric.practo.com/practices/1209632/icure-heart-and-diet-clinic-vadodara-5edf2b7084a11.jpg",
-      name: "Derma-Care Clinic",
-      doc_name: "Dr. Paresh Mehta",
-      Contact: "+91-265-2421182",
-      dayTime: "11:00 AM To 2:00 PM",
-      noonTime: "5:00 PM To 8:00 PM",
-      drQualification: "M.D.(SKIN & V.D)",
-      tretments: "Laser, Alergy, Skin, Cosmetology",
-      predicted,
-    },
-  ];
+
+  
   const [cough, setCough] = useState("Select");
+  const [coughCount, setCoughCount] = useState(0);
   const [fever, setFever] = useState("Select");
+  const [feverCount, setFeverCount] = useState(0);
   const [pain, setPain] = useState("Select");
+  const [painCount, setPainCount] = useState(0);
+
   const [hospital, setHospital] = useState(props.hospital);
   const [account, setAccount] = useState(props.account);
 
@@ -110,42 +121,58 @@ function Appointment(props) {
               <div className="appointment_box_select">
                 <DropdownButton
                   id="dropdown-basic"
-                  variant="success"
                   title={cough}
                   className="but"
                 >
                   {cough_item.map((res) => {
                     return (
-                      <Dropdown.Item as="button" onClick={() => setCough(res)}>
-                        {res}
+                      <Dropdown.Item
+                        as="button"
+                        onClick={() => {
+                          setCough(res.type);
+                          setCoughCount(res.count);
+                        }}
+                      >
+                        {res.type}
                       </Dropdown.Item>
                     );
                   })}
                 </DropdownButton>
                 <DropdownButton
                   id="dropdown-basic"
-                  variant="success"
                   title={fever}
                   className="but"
                 >
                   {fever_item.map((res) => {
                     return (
-                      <Dropdown.Item as="button" onClick={() => setFever(res)}>
-                        {res}
+                      <Dropdown.Item
+                        as="button"
+                        onClick={() => {
+                          setFever(res.type);
+                          setFeverCount(res.count);
+                        }}
+                        id="but"
+                      >
+                        {res.type}
                       </Dropdown.Item>
                     );
                   })}
                 </DropdownButton>
                 <DropdownButton
                   id="dropdown-basic"
-                  variant="success"
                   title={pain}
                   className="but"
                 >
                   {pain_item.map((res) => {
                     return (
-                      <Dropdown.Item as="button" onClick={() => setPain(res)}>
-                        {res}
+                      <Dropdown.Item
+                        as="button"
+                        onClick={() => {
+                          setPain(res.type);
+                          setPainCount(res.count);
+                        }}
+                      >
+                        {res.type}
                       </Dropdown.Item>
                     );
                   })}
