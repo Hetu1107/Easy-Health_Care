@@ -13,6 +13,7 @@ function Predictor(props) {
     const [selected,setSelected] = useState([]);
     const [out,setOut] = useState(data);
     const [search,setSearch] = useState('');
+
     const [lo,setLo] = useState(null);
     const [ard,setArd] = useState([]);
     const Predict = async () =>{
@@ -55,6 +56,7 @@ function Predictor(props) {
             setLo(null);
         })
     }
+
     const searchFilter = () =>{
         setOut([]);
         data.map(val=>{
@@ -64,6 +66,8 @@ function Predictor(props) {
            }
         })
     }
+
+
     return (
         <>
         <Modal
@@ -84,7 +88,7 @@ function Predictor(props) {
             <div className="search_box">
                 <input type="text" placeholder="search here..." onChange={(e)=>{
                     setSearch(e.target.value)
-                    searchFilter()
+                    
                 }}/>
             </div>
             <div className="diseases_box">
