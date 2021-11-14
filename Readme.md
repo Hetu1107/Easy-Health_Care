@@ -94,3 +94,47 @@ Numpy, Pandas, Sklearn, React.js, Node-JS, Socket.io, Ganache, HTML, CSS
 ## Developers
 
 ## [HETU](https://github.com/Hetu1107/), [NAITIK](https://github.com/Naitik6803), [ZAID](https://github.com/zaidm124)
+
+<br/>
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/Hetu1107/DEV.HNZ-DevHeat-2021
+```
+
+Go to the project directory
+
+```bash
+  cd DEV.HNZ-DEVHEAT-2021
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the Node server
+
+```bash
+  nodemon server.js
+```
+Go to the client directory
+
+```bash
+  cd client
+```
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm start
+```
