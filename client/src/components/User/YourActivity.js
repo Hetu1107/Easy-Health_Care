@@ -4,9 +4,12 @@ function YourActivity (props) {
     const [token, setToken] = useState(0);
     const [time, setTime] = useState(0);
     const [f, setF] = useState(0);
+    const [currentToken, setCurrentToken] = useState(0);
 
     useEffect(async () => {
         const t = await props.hospital.methods?.tokenStart().call();
+        const currentToken = await props.hospital.methods.patients(t).call();
+        setCurrentToken(currentToken[0]);
         const total = await props.hospital.methods?.tokenNum().call();
         let num = 0;
         let flag = 0;
@@ -50,6 +53,11 @@ function YourActivity (props) {
                             <h3>
                                 Your Turn Can be in : <span>{time} minutes</span>
                             </h3>
+                        </div>
+                        <div className = "appointment_admin_top">
+                            <div>
+                                <h2>Current token number: <span>{currentToken}</span></h2>
+                            </div>
                         </div>
                     </div>
                 </div>
