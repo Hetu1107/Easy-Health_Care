@@ -43,82 +43,6 @@ app.post("/py", async (req, res, next) => {
     res.end();
   });
 });
-// let ansss = '';
-// app.post('/predict', async (req, res, next) => {
-//     let val = req.body.dat;
-//     let finalString = '';
-//     finalString += val[0];
-//     for (var i = 1; i < val.length; i++) {
-//         finalString += `,${val[i]}`;
-//     }
-//     var childpython = null;
-//     await new Promise((resolve, reject) => {
-//         childpython = spawn('python', ['diseasePrediction.py', finalString]);
-//         childpython.stdout.on('data', (data) => {
-//             ansss = '';
-//             ansss += data;
-//             console.log(`${data}`);
-//             resolve(true);
-//         });
-//         // childpython.stderr.on("data", (data) => {
-//         //   console.error(`stderr: ${data}`);
-//         //   resolve(true);
-//         // });
-//     }).then(() => {
-//         res.json({ value: ansss, val: val });
-//         res.end();
-//     });
-// });
-
-// let ansss = [];
-// app.post("/predict", async (req, res, next) => {
-//   let val = req.body.dat;
-//   let finalString="";
-//   finalString+=val[0];
-//   for(var i =1;i<val.length;i++){
-//     finalString+=`,${val[i]}`;
-//   }
-//   var childpython = null;
-//   var str1 = ""
-//   await new Promise((resolve, reject) => {
-//     childpython = spawn("python", ["diseasePrediction.py", finalString]);
-//     childpython.stdout.on("data", (data) => {
-//       str1 = ""
-//       ansss = [];
-//       ansss.push(data);
-//       str1+=(ansss[0]);
-//       console.log(`${ansss[0]}`);
-//       resolve(true);
-
-// let ansss = "";
-// app.post("/predict", async (req, res, next) => {
-//   let val = req.body.dat;
-//   let finalString="";
-//   finalString+=val[0];
-//   for(var i =1;i<val.length;i++){
-//     finalString+=`,${val[i]}`;
-//   }
-//   var childpython = null;
-//   await new Promise((resolve, reject) => {
-//     childpython = spawn("python", ["diseasePrediction.py", finalString]);
-//     childpython.stdout.on("data", (data) => {
-//       ansss = ""
-//       ansss+=data;
-//       console.log(`${data}`);
-//       resolve(true);
-
-// app.post('/append', (req, res) => {
-//     const val = req.body.message;
-//     fs.appendFile('./appointment.txt', `\n${val}`, (err) => {
-//         if (err) {
-//             console.log(err);
-//         }
-//         console.log('file was saved');
-//     });
-// childpython.stderr.on("data", (data) => {
-//   console.error(`stderr: ${data}`);
-//   resolve(true);
-// });
 
 let ansss = [];
 let str1 = "";
@@ -196,21 +120,6 @@ io.on("connection", (socket) => {
     console.log(user[roomId]);
     socket.emit("check", user);
   });
-
-  // socket.on("activate-room", (roomId, userId) => {
-  //   console.log("room activated", roomId);
-  //   activated[roomId] = true;
-  // });
-  // socket.on("get-activated", () => {
-  //   socket.emit("active", activated);
-  // });
-
-  // socket.on("room-deactivate", (roomId) => {
-  //   delete activated[roomId];
-  //   user[roomId] = undefined;
-  //   io.to(roomId).emit("deactivate", activated);
-  //   socket.leave(roomId);
-  // });
 
   socket.on("leave-room", (roomId, userId) => {
     console.log("left the room", roomId, userId);
