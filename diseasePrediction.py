@@ -6,6 +6,11 @@ from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import GaussianNB
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
+import sys
+
+
+s = (sys.argv[1])
+
 
 data = pd.read_csv("Training.csv").dropna(axis=1)
 disease_counts = data["prognosis"].value_counts()
@@ -84,4 +89,4 @@ def predictDisease(symptoms):
 #     final_prediction = mode([rf_prediction, nb_prediction])[0][0]
 
     return  nb_prediction
-print(predictDisease("High Fever,Yellow Urine,Sweating,Dehydration"))
+print(predictDisease(s))

@@ -4,6 +4,7 @@ import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import src from "../../assets/images/nav.svg";
 import Predictor from "../Predictor/Predictor";
+import Load from "../Load";
 
 function MainNav() {
   const [modalShow, setModalShow] = React.useState(false);

@@ -1,17 +1,36 @@
 import React, { useState } from 'react'
 import Diseases_Data from './DiseasesData'
-import { Modal ,Button} from 'react-bootstrap'
+import { Modal ,Button, Nav} from 'react-bootstrap'
+import axios from 'axios'
+import Load from '../Load';
+let output;
 function Predictor(props) {
     const [data,setData] = useState(Diseases_Data)
     const [selected,setSelected] = useState([]);
     const [search,setSearch] = useState('');
+    const [lo,setLo] = useState(null);
+    const Predict = async () =>{
+        setLo(<Load/>);
+       await axios.post("/predict",{
+            dat : selected
+        })
+        .then((res)=>{
+            output = res.data.value;
+            console.log(res);
+            setLo(null);
+        })
+    }
     return (
+        <>
         <Modal
       {...props}
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
+        {
+            lo
+        }
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
           Diseases Predictor
@@ -63,11 +82,20 @@ function Predictor(props) {
                             }
                     </div>
             </div>
+            <div className="diseases_box_selected">
+            <div className="diseases_box_selected_top">
+                        <h3 id="thro">Predicted Diseses</h3>
+                    </div>
+                    <div className="diseases_box_selected_middle" id="sco">
+                        <h4>{output}</h4>
+                    </div>
+            </div>
       </Modal.Body>
       <Modal.Footer>
-        <Button>Predict Diseases</Button>
+        <Button onClick={Predict}>Predict Diseases</Button>
       </Modal.Footer>
     </Modal>
+    </>
     )
 }
 
