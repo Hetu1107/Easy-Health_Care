@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import Diseases_Data from './DiseasesData'
 import { Modal ,Button} from 'react-bootstrap'
+
+
 function Predictor(props) {
     const [data,setData] = useState(Diseases_Data)
     const [selected,setSelected] = useState([]);
@@ -65,7 +67,10 @@ function Predictor(props) {
             </div>
       </Modal.Body>
       <Modal.Footer>
-        <Button>Predict Diseases</Button>
+        <Button onClick={()=>{
+           console.log("wefwfo")
+            }
+        }>Predict Diseases</Button>
       </Modal.Footer>
     </Modal>
     )
