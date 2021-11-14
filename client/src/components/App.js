@@ -8,6 +8,7 @@ import Login from "./Register/Login";
 import SignUp from "./Register/SignUp";
 import Chat from "./Chat";
 import Predictor from "./Predictor/Predictor";
+import Register from "./Register/Register";
 function App() {
   const [account, setAccount] = useState("");
   const [loading, setLoading] = useState(true);
@@ -77,11 +78,14 @@ function App() {
           <Route exact path="/user">
             <User hospital={hospital} account={account} />
           </Route>
-          <Route exact path="/login">
+          {/* <Route exact path="/login">
             <Login hospital={hospital} account={account} />
           </Route>
           <Route exact path="/signup">
             <SignUp hospital={hospital} account={account} />
+          </Route> */}
+          <Route exact path="/register">
+            <Register hospital={hospital} account={account}/>
           </Route>
           <Route exact path="/chat">
             <Chat />
