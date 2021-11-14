@@ -21,6 +21,7 @@ contract Hospital {
         string name;
         uint256 age;
         string blood;
+        uint256 contact;
     }
 
     function bookAppointments(uint256 _time) public {
@@ -37,12 +38,12 @@ contract Hospital {
     function register(
         string memory name,
         uint256 age,
-        string memory blood
+        string memory blood, uint256 contact
     ) public {
         address account = msg.sender;
-        // require(!registered[account]);
-        // registered[msg.sender] = true;
-        users[userCount] = User(account, name, age, blood);
+         require(!registered[account]);
+         registered[msg.sender] = true;
+        users[userCount] = User(account, name, age, blood, contact);
         userCount++;
     }
 }

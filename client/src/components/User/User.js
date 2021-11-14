@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Appointment from './Appointment';
 import PrivateChat from './PrivateChat';
 import YourActivity from './YourActivity';
@@ -16,6 +16,26 @@ function User (props) {
         // <AppointMentAdmin hospital={props.hospital} account={props.account}/>
         <Appointment hospital = {props.hospital} account = {props.account}/>,
     );
+    const [name, setName] = useState('Guest');
+    const [age, setAge] = useState(21);
+    const [blood, setBlood] = useState('B+');
+    const [contact, setContact] = useState(1000000000);
+
+    useEffect(async () => {
+        const userCount = await props.hospital.methods?.userCount().call();
+        let num = 0;
+        let flag = 0;
+        for (let i = 0; i < userCount; i++) {
+            const user = await props.hospital.methods?.users(i).call();
+            if (user[0] === props.account) {
+                setName(user[1]);
+                setAge(user[2]);
+                setBlood(user[3]);
+                setContact(user[4]);
+            }
+        }
+
+    }, []);
 
     function dropDown () {
         if (!drop) {
@@ -50,24 +70,24 @@ function User (props) {
                     <div className = "Profile_page_of_users_middle_content_about">
                         <div className = "name_div">
                             <h3>
-                                Name : <span>Name of User</span>
+                                Name : <span>{name}</span>
                             </h3>
                         </div>
                         <div className = "age_blood_div">
                             <div className = "blood">
                                 <h3>
-                                    Blood_Group : <span>B+</span>
+                                    Blood_Group : <span>{blood}</span>
                                 </h3>
                             </div>
                             <div className = "age">
                                 <h3>
-                                    Age : <span>19</span>
+                                    Age : <span>{age}</span>
                                 </h3>
                             </div>
                         </div>
                         <div className = "contact_div">
                             <h3>
-                                Contact-No. : <span>1234567890</span>
+                                Contact-No. : <span>{contact}</span>
                             </h3>
                         </div>
                     </div>

@@ -97,6 +97,9 @@ function App () {
                     <Route exact path = "/pre">
                         <Predictor/>
                     </Route>
+                    <Route exact path = "/register">
+                        <Register hospital = {hospital} account = {account}/>
+                    </Route>
                 </Switch>
             </Router>
         </div>
