@@ -126,18 +126,18 @@ function Home() {
             <div>
               <ol>
                 <li>
-                  We Provides The Appontment Facilities So that any one can book
-                  their appoint-ment to hteir near hospital.
+                  We Provide The Appointment Facilities So that any one can book
+                  their appointment, and also predict the the approx time it
+                  will take for his turn
                 </li>
                 <li>
-                  We have the dieces pradictor so that any one can predict what
-                  happent to him/her.
+                  We have the disease predictor so that any one can predict what
+                  disease he/she might have.
                 </li>
                 <li>
                   We have also facility of personal talk, so that any one can
                   chat privately with doctors.
                 </li>
-                <li>Also We have token pradictor.</li>
               </ol>
             </div>
 
