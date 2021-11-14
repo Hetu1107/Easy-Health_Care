@@ -17,9 +17,14 @@
 ```
 - The patients have to wait a long time for their turn in clinics/hospitals.
 
-- So, to solve this problem, we have created an online booking appointment which also has a predicter which will help them to reach hospital on time and decide when they can take appointment so that they save their time.
+- So, to solve this problem, we have created an online booking appointment.
+- It also has a predicter which will help them to reach hospital on time.
 
-- The concerns of privacy are resolved in the private chat with doctor, since socket.io is used for chatting and rooms.
+- They can decide whenever they want to take an appointment so that they can save their time.
+
+- The concerns of privacy and chat leak are resolved in the private chat with doctor, since socket.io is used for chatting and rooms.
+
+- The problem of data leak will be solved in this model, because all the data is stored in Blockchain contract, and cannot be changed.
 ```
 
 # Feature 1
@@ -30,6 +35,8 @@
 - After Booking The Details will be Shown in (Your-activity) Tab Which includes [The Token No.] and [Predicted Time left]
 
 - The Patient cannot book a new appointment until his/her pending appointment is not completed.
+
+- We wanted to use timer to show the time left for the appointment, but were not able to complete it.
 ```
 
 # Feature 2
@@ -37,9 +44,11 @@
 ```
 - Patient Can Talk Privetly With The Doctor in a Separate Room.
 
-- Only One Patiant Can Be in a Room At a time.
+- Only One Patient Can Be in a Room At a time.
 
 -The chats are deleted as soon as the patient leaves the room.
+
+-We also tried to send request to doctor, whenever some patient wants to join room, but were not able to complete it.
 ```
 
 # Feature 3
@@ -62,6 +71,7 @@
 
 - The Contact-Us form is connected woth Email-Js. The form submissions will be sent to our email-id.
 
+- The admin account can be accesed only by the person who has the ethereum account which is mentioned in the appointment.js file.
 ```
 
 ###
