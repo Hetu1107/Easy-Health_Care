@@ -6,8 +6,8 @@ function YourActivity (props) {
     const [f, setF] = useState(0);
 
     useEffect(async () => {
-        const t = await props.hospital.methods.tokenStart().call();
-        const total = await props.hospital.methods.tokenNum().call();
+        const t = await props.hospital.methods?.tokenStart().call();
+        const total = await props.hospital.methods?.tokenNum().call();
         let num = 0;
         let flag = 0;
         for (let i = t; i <= total; i++) {

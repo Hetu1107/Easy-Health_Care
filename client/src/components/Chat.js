@@ -51,6 +51,7 @@ function Chat(props) {
   useEffect(() => {
     socket.on("room-left", (userId) => {
       props.history.push("/user");
+      window.location.reload(true)
     });
   });
 

@@ -82,8 +82,7 @@ function Appointment (props) {
             t = parseInt(t);
             console.log('rounded', t);
             console.log(account, hospital);
-            await hospital.methods
-            .bookAppointments(t)
+            await hospital.methods?.bookAppointments(t)
             .send({ from: account })
             .once('confirmation', () => {})
             .then(async () => {
