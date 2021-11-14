@@ -32,7 +32,7 @@ Link
 - The problem of data leak will be solved in this model, because all the data is stored in Blockchain contract, and cannot be changed.
 ```
 <p align="center">
-<img src="./images/four.png"/>
+<img src="./images/six.png"/>
 </p>
 
 # Feature 1
