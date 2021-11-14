@@ -41,8 +41,8 @@ contract Hospital {
         string memory blood, uint256 contact
     ) public {
         address account = msg.sender;
-        // require(!registered[account]);
-        // registered[msg.sender] = true;
+         require(!registered[account]);
+         registered[msg.sender] = true;
         users[userCount] = User(account, name, age, blood, contact);
         userCount++;
     }
