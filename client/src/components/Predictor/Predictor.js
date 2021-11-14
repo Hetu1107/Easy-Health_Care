@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState ,useEffect} from 'react'
 import Diseases_Data from './DiseasesData'
 
 
@@ -11,6 +11,7 @@ let output;
 function Predictor(props) {
     const [data,setData] = useState(Diseases_Data)
     const [selected,setSelected] = useState([]);
+    const [out,setOut] = useState(data);
     const [search,setSearch] = useState('');
     const [lo,setLo] = useState(null);
     const [ard,setArd] = useState([]);
@@ -54,6 +55,15 @@ function Predictor(props) {
             setLo(null);
         })
     }
+    const searchFilter = () =>{
+        setOut([]);
+        data.map(val=>{
+           if( val.toLowerCase().trim().includes(search.toLowerCase().trim()))
+           {
+               setOut((o)=>[...o,val]);
+           }
+        })
+    }
     return (
         <>
         <Modal
@@ -74,12 +84,13 @@ function Predictor(props) {
             <div className="search_box">
                 <input type="text" placeholder="search here..." onChange={(e)=>{
                     setSearch(e.target.value)
+                    searchFilter()
                 }}/>
             </div>
             <div className="diseases_box">
                 <div className="diseases_box_main">
                     {
-                        data.map((res,index)=>{
+                        out.map((res,index)=>{
                             return(
                                 <div className="diseases_box_main_boxes" onClick={()=>{
                                     setSelected([...selected,res]);
