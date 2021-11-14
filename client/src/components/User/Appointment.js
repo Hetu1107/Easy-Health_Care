@@ -65,12 +65,12 @@ function Appointment(props) {
   });
 
   useEffect(async () => {
-    const t = await props.hospital.methods.tokenStart().call();
-    const total = await props.hospital.methods.tokenNum().call();
+    const t = await props.hospital.methods?.tokenStart().call();
+    const total = await props.hospital.methods?.tokenNum().call();
     let num = 0;
     let flag = 0;
     for (let i = t; i <= total; i++) {
-      const user = await props.hospital.methods.patients(i).call();
+      const user = await props.hospital.methods?.patients(i).call();
       if (user[2] === props.account) {
         setF(1);
       }

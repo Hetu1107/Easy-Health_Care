@@ -16,10 +16,10 @@ function User (props) {
         // <AppointMentAdmin hospital={props.hospital} account={props.account}/>
         <Appointment hospital = {props.hospital} account = {props.account}/>,
     );
-    const [name, setName] = useState('');
-    const [age, setAge] = useState();
-    const [blood, setBlood] = useState('');
-    const [contact, setContact] = useState();
+    const [name, setName] = useState('Guest');
+    const [age, setAge] = useState(21);
+    const [blood, setBlood] = useState('B+');
+    const [contact, setContact] = useState(1000000000);
 
     useEffect(async () => {
         const userCount = await props.hospital.methods?.userCount().call();
