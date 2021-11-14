@@ -1,12 +1,12 @@
-import React,{useRef} from "react";
-import '../../style/Home.css';
+import React, { useRef } from "react";
+import "../../style/Home.css";
 import { Carousel, Form, Button, FloatingLabel } from "react-bootstrap";
 import src from "../../assets/images/health.svg";
 import { useState, useEffect } from "react";
 import MainNav from "../Nav/MainNav";
 import emailjs from "emailjs-com";
 
-// photos of the slider src and time intervals 
+// photos of the slider src and time intervals
 const Photos = [
   {
     interval: 1000,
@@ -28,16 +28,27 @@ function Home() {
   const [index, setIndex] = useState(0);
   const form = useRef();
 
-  const send_email = (e) =>{
-      e.preventDefault();
-      emailjs.sendForm('service_jsvwrap', 'template_6y07sra', form.current, 'user_XE2DNXIsyHS8NWRVKktZP')
-      .then((result) => {
+  // The send_email function is for contact form
+
+  const send_email = (e) => {
+    e.preventDefault();
+    emailjs
+      .sendForm(
+        "service_jsvwrap",
+        "template_6y07sra",
+        form.current,
+        "user_XE2DNXIsyHS8NWRVKktZP"
+      )
+      .then(
+        (result) => {
           console.log(result.text);
-      }, (error) => {
+        },
+        (error) => {
           console.log(error.text);
-      });
-      e.target.reset();
-  }
+        }
+      );
+    e.target.reset();
+  };
   useEffect(() => {
     const items = document.querySelectorAll(".accordion button");
 
@@ -60,7 +71,7 @@ function Home() {
   };
   return (
     <>
-      <MainNav/>
+      <MainNav />
       <Carousel activeIndex={index} onSelect={handleSelect}>
         {Photos.map((res, inde) => {
           return (
@@ -160,10 +171,10 @@ function Home() {
               </button>
               <div class="accordion-content">
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Elementum sagittis vitae et leo duis ut. Ut tortor pretium
-                  viverra suspendisse potenti.
+                  This web app can predict diseases based on symptoms you have.
+                  It also has private chat with doctor. You can also book
+                  appointment with a doctor, and you will also get a predicted
+                  time regarding your appointment.
                 </p>
               </div>
             </div>
@@ -175,12 +186,7 @@ function Home() {
                 <span class="icon" aria-hidden="true"></span>
               </button>
               <div class="accordion-content">
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Elementum sagittis vitae et leo duis ut. Ut tortor pretium
-                  viverra suspendisse potenti.
-                </p>
+                <p>There are no security issues as such.</p>
               </div>
             </div>
             <div class="accordion-item">
@@ -189,12 +195,7 @@ function Home() {
                 <span class="icon" aria-hidden="true"></span>
               </button>
               <div class="accordion-content">
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Elementum sagittis vitae et leo duis ut. Ut tortor pretium
-                  viverra suspendisse potenti.
-                </p>
+                <p>The data is stored in blockchain, so it is secured.</p>
               </div>
             </div>
             <div class="accordion-item">
@@ -204,10 +205,9 @@ function Home() {
               </button>
               <div class="accordion-content">
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Elementum sagittis vitae et leo duis ut. Ut tortor pretium
-                  viverra suspendisse potenti.
+                  Connect the website to your wallet and you can book
+                  appointments, the predictor and private chat will work without
+                  blockchain also.
                 </p>
               </div>
             </div>
@@ -218,13 +218,13 @@ function Home() {
             <h1>Contact-Us</h1>
           </div>
           <div className="contact_us_form_body">
-            <Form onSubmit={(e)=>send_email(e)} ref={form}>
+            <Form onSubmit={(e) => send_email(e)} ref={form}>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Mobile No.</Form.Label>
                 <Form.Control
                   type="number"
                   placeholder="Enter Your Mobile no.."
-                  name = "from_number"
+                  name="from_number"
                 />
                 <Form.Text className="text-muted">
                   We'll never share your number with anyone else.
@@ -234,13 +234,17 @@ function Home() {
                 <Form.Control
                   as="textarea"
                   placeholder="Leave a comment here"
-                  name = "message"
+                  name="message"
                   style={{ height: "100px" }}
                 />
               </FloatingLabel>
-              <Form.Group className="mb-3" controlId="formBasicEmail" >
+              <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Name</Form.Label>
-                <Form.Control type="text" placeholder="Enter you Name.." name="from_name"/>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter you Name.."
+                  name="from_name"
+                />
               </Form.Group>
               <Button variant="primary" type="submit" id="front_submit">
                 Submit

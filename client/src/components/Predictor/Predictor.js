@@ -8,6 +8,8 @@ import axios from 'axios'
 import Load from '../Load';
 let output;
 
+// This is the page for predictor which predicts the disease
+
 function Predictor(props) {
     const [data,setData] = useState(Diseases_Data)
     const [selected,setSelected] = useState([]);
@@ -134,7 +136,7 @@ function Predictor(props) {
             </div>
             <div className="diseases_box_selected">
             <div className="diseases_box_selected_top">
-                        <h3 id="thro">Predicted Disese</h3>
+                        <h3 id="thro">Predicted Disease</h3>
                     </div>
                     <div className="diseases_box_selected_middle" id="sco">
                         <h4>{output}</h4>
