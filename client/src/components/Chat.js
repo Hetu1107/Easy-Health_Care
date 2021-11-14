@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../style/Chat.css";
-import { withRouter } from "react-router";
+import { withRouter } from "react-router-dom";
 import io from "socket.io-client";
 
 const socket = io("/");
@@ -17,15 +17,6 @@ function Chat(props) {
     );
     socket.on("user-connected", (userId, user) => {
       console.log("user joined", userId, user);
-    });
-  }, []);
-
-  useEffect(() => {
-    socket.on("requested", (userId) => {
-      if (window.confirm("Do you want to allow " + userId)) {
-        socket.emit("allow-entry", props.location.state.roomId, userId);
-      }
-      console.log("requested");
     });
   }, []);
 
@@ -50,6 +41,7 @@ function Chat(props) {
 
   useEffect(() => {
     socket.on("room-left", (userId) => {
+      setChats([])
       props.history.push("/user");
       window.location.reload(true)
     });
