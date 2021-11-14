@@ -47,6 +47,8 @@
 ```
 - It is a predictor Where patients Can Add Two Or more Symptoms And Will Get Predicted [Disease] and [Precautions]
 
+- It is based on [Naive Bayes] and [forest] methods.
+
 ```
 
 # About This App
@@ -55,8 +57,6 @@
 - The patients Can Register using their etherium Account.
 
 - While Registering The data is Stored in [ Block-Chain Contract ], which is much more safe than anyy other database
-
-- The disease predictor is based on [Naive Bayes] and [forest] methods.
 
 - The time predictor in appointment feature is based on [linear regression model].
 
@@ -79,6 +79,7 @@ Numpy, Pandas, Sklearn, React.js, Node-JS, Socket.io, Ganache, HTML, CSS
     https://hospital-model.herokuapp.com/
 
 ```
+
 ## [Deployed - App](https://hospital-model.herokuapp.com/)
 
 <br/>
@@ -122,11 +123,13 @@ Start the Node server
 ```bash
   nodemon server.js
 ```
+
 Go to the client directory
 
 ```bash
   cd client
 ```
+
 Install dependencies
 
 ```bash
@@ -137,4 +140,14 @@ Start the server
 
 ```bash
   npm start
+```
+
+Connect to blockchain
+
+```bash
+    download ganache and add metamask extension
+    Add a custom RPC netowrk
+    Network Name: Ganache
+    RPC URL: http://127.0.0.1:7545
+    Chain Id: 1337
 ```
