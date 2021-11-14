@@ -21,6 +21,9 @@
 
 - The concerns of privacy are resolved in the private chat with doctor, since socket.io is used for chatting and rooms.
 ```
+<p align="center">
+<img src="./images/four.png"/>
+</p>
 
 # Feature 1
 
@@ -32,6 +35,13 @@
 - The Patient cannot book a new appointment until his/her pending appointment is not completed.
 ```
 
+<p align="center">
+<img src="./images/two.jpeg"/>
+<br/>
+<img src="./images/three.jpeg"/>
+</p>
+
+
 # Feature 2
 
 ```
@@ -41,6 +51,9 @@
 
 -The chats are deleted as soon as the patient leaves the room.
 ```
+<p align="center">
+<img src="./images/one.png"/>
+</p>
 
 # Feature 3
 
@@ -48,6 +61,10 @@
 - It is a predictor Where patients Can Add Two Or more Symptoms And Will Get Predicted [Disease] and [Precautions]
 
 ```
+<p align="center">
+<img src="./images/five.jpeg"/>
+</p>
+
 
 # About This App
 
