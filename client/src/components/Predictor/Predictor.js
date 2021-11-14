@@ -11,7 +11,8 @@ let output;
 function Predictor(props) {
     const [data,setData] = useState(Diseases_Data)
     const [selected,setSelected] = useState([]);
-    const [search,setSearch] = useState('');
+     const [input,setInput]=useState('')
+    const [out,setOut] = useState([]);
     const [lo,setLo] = useState(null);
     const [ard,setArd] = useState([]);
     const Predict = async () =>{
@@ -54,6 +55,15 @@ function Predictor(props) {
             setLo(null);
         })
     }
+ useEffect(()=>{
+        setOut([])
+        data.filter(val=>{
+            if( val.toLowerCase().includes(input.toLowerCase()))
+            {
+                setOut(out=>[...out,val])
+            }
+        })
+    })
     return (
         <>
         <Modal
@@ -73,13 +83,13 @@ function Predictor(props) {
       <Modal.Body>
             <div className="search_box">
                 <input type="text" placeholder="search here..." onChange={(e)=>{
-                    setSearch(e.target.value)
+                     setInput(e.target.value)
                 }}/>
             </div>
             <div className="diseases_box">
                 <div className="diseases_box_main">
                     {
-                        data.map((res,index)=>{
+                        out.map((res,index)=>{
                             return(
                                 <div className="diseases_box_main_boxes" onClick={()=>{
                                     setSelected([...selected,res]);
