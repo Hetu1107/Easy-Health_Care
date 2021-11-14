@@ -70,30 +70,7 @@ app.post("/predict", async (req, res, next) => {
   });
 });
 
-app.post("/py", async (req, res, next) => {
-  let val = req.body.message;
-  let ans = "";
-  var childpython = null;
-  await new Promise((resolve, reject) => {
-    childpython = spawn("python", ["diseasePrediction.py", val[0], val[2], val[4]]);
-    childpython.stdout.on("data", (data) => {
-      ans = "";
-      console.log(val[0]);
-      console.log(val[2]);
-      console.log(val[4]);
-      ans += data;
-      console.log(`${data}`);
-      resolve(true);
-    });
-    childpython.stderr.on("data", (data) => {
-      console.error(`stderr: ${data}`);
-      resolve(true);
-    });
-  }).then(() => {
-    res.json({ value: ans, val: val });
-    res.end();
-  });
-});
+
 
 
 

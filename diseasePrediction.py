@@ -1,12 +1,12 @@
 import numpy as np
 import pandas as pd
-import sys
 from scipy.stats import mode
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import GaussianNB
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
+from symptom_precautions import *
 
 import sys
 
@@ -98,18 +98,8 @@ def predictDisease(symptoms):
         if(final_prediction== precautions[i][0]):
             x+=i
             break
-    print(final_prediction)
-
-    print("1) ",precautions[x][1])
-    print("2) ",precautions[x][2])
-    print("3) ",precautions[x][3])
-    print("4) ",precautions[x][4])
 
     return  final_prediction
-predictDisease("High Fever,Cough,Headache")
 
-#     final_prediction = mode([rf_prediction, nb_prediction])[0][0]
-
-    return  nb_prediction
-predictDisease(s)
+print(predictDisease(s))
 

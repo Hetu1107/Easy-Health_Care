@@ -96,10 +96,6 @@ function Predictor(props) {
             </div>
       </Modal.Body>
       <Modal.Footer>
-
-       
-        }>Predict Diseases</Button>
-
         <Button onClick={Predict}>Predict Diseases</Button>
 
       </Modal.Footer>
