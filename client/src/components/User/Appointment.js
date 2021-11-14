@@ -47,7 +47,7 @@ function Appointment (props) {
     const [feverCount, setFeverCount] = useState(0);
     const [pain, setPain] = useState('Select');
     const [painCount, setPainCount] = useState(0);
-
+    const [F, setF] = useState(0);
     const [hospital, setHospital] = useState(props.hospital);
     const [account, setAccount] = useState(props.account);
     const [firebase, setFirebase] = useState('');
@@ -64,36 +64,53 @@ function Appointment (props) {
         });
     });
 
+    useEffect(async () => {
+        const t = await props.hospital.methods.tokenStart().call();
+        const total = await props.hospital.methods.tokenNum().call();
+        let num = 0;
+        let flag = 0;
+        for (let i = t; i <= total; i++) {
+            const user = await props.hospital.methods.patients(i).call();
+            if (user[2] === props.account) {
+                setF(1);
+            }
+        }
+    }, []);
+
     const Booking = async (e) => {
         e.preventDefault();
         let account = props.account;
         let hospital = props.hospital;
         let final = coughCount + ',' + feverCount + ',' + painCount;
-        axios
-        .post('/py', {
-            message: final,
-        })
-        .then(async (res) => {
-            let t = res.data.value;
-            t = t.substring(0, 4);
-            t = parseFloat(t);
-            t = Math.round(t);
-            t = t * 100;
-            t = parseInt(t);
-            console.log('rounded', t);
-            console.log(account, hospital);
-            await hospital.methods
-            .bookAppointments(t)
-            .send({ from: account })
-            .once('confirmation', () => {})
-            .then(async () => {
-                const time = await hospital.methods.time().call();
-                setPredicted(time / 100);
-                db.collection('time').doc('BlRD2Dn5dljXLvCdflUz').update({
-                    time: time / 100,
+        if (F === 1) {
+            window.alert('You have already booked your appointment, please go to Activity Section');
+        } else {
+            axios
+            .post('/py', {
+                message: final,
+            })
+            .then(async (res) => {
+                let t = res.data.value;
+                t = t.substring(0, 4);
+                t = parseFloat(t);
+                t = Math.round(t);
+                t = t * 100;
+                t = parseInt(t);
+                console.log('rounded', t);
+                console.log(account, hospital);
+                await hospital.methods
+                .bookAppointments(t)
+                .send({ from: account })
+                .once('confirmation', () => {})
+                .then(async () => {
+                    const time = await hospital.methods.time().call();
+                    setPredicted(time / 100);
+                    db.collection('time').doc('BlRD2Dn5dljXLvCdflUz').update({
+                        time: time / 100,
+                    });
                 });
             });
-        });
+        }
     };
     useEffect(() => {
         if (props.account === '0x34c9C9F9191b0c215F8654064BDF2A35aa755e8D') {

@@ -18,15 +18,15 @@ function AppointMentAdmin (props) {
         setTime(time / 100);
     }, [props.zero]);
 
-    const Start = async (e) => {
-        e.preventDefault();
-        const token = await props.hospital.methods.tokenStart().call();
-        console.log(token);
-        setToken(token);
-        const current = await props.hospital.methods.patients(token).call();
-        const time = current[1];
-        setTime(time / 100);
-    };
+    // const Start = async (e) => {
+    //     e.preventDefault();
+    //     const token = await props.hospital.methods.tokenStart().call();
+    //     console.log(token);
+    //     setToken(token);
+    //     const current = await props.hospital.methods.patients(token).call();
+    //     const time = current[1];
+    //     setTime(time / 100);
+    // };
 
     const NextPatient = async (e) => {
         e.preventDefault();
@@ -76,9 +76,9 @@ function AppointMentAdmin (props) {
                             <div className = "appointment_admin_middle">
                                 <button onClick = {NextPatient}>Next Patient</button>
                             </div>
-                            <div className = "appointment_admin_middle">
-                                <button onClick = {Start}>Start</button>
-                            </div>
+                            {/*<div className = "appointment_admin_middle">*/}
+                            {/*    <button onClick = {Start}>Start</button>*/}
+                            {/*</div>*/}
                         </div>
                     );
                 })
