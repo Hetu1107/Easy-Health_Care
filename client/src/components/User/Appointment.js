@@ -105,6 +105,7 @@ function Appointment(props) {
             .send({ from: account })
             .once("confirmation", () => {})
             .then(async () => {
+              setF(1);
               const time = await hospital.methods?.time().call();
               setPredicted(time / 100);
               db.collection("time")
@@ -210,7 +211,9 @@ function Appointment(props) {
                 </div>
               </div>
               <div className="turn_box">
-                <h4>your turn will be in next <span>{res.predicted}</span> minutes</h4>
+                <h4>
+                  your turn will be in next <span>{res.predicted}</span> minutes
+                </h4>
               </div>
               <div className="appointment_box_end_final_submit">
                 <button onClick={Booking}>Fix-Appointment</button>
