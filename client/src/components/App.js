@@ -9,6 +9,7 @@ import SignUp from "./Register/SignUp";
 import Chat from "./Chat";
 import Predictor from "./Predictor/Predictor";
 import Register from "./Register/Register";
+
 function App() {
   const [account, setAccount] = useState("");
   const [loading, setLoading] = useState(true);
