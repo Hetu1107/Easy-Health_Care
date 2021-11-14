@@ -43,6 +43,7 @@ function Chat(props) {
     socket.on("room-left", (userId) => {
       setChats([])
       props.history.push("/user");
+      window.location.reload(true)
     });
   });
 
