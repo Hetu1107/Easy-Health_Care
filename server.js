@@ -70,6 +70,11 @@ app.post("/predict", async (req, res, next) => {
   });
 });
 
+
+
+
+
+
 app.post("/append", (req, res) => {
   const val = req.body.message;
   fs.appendFile("./appointment.txt", `\n${val}`, (err) => {
