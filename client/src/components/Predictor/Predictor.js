@@ -13,14 +13,44 @@ function Predictor(props) {
     const [selected,setSelected] = useState([]);
     const [search,setSearch] = useState('');
     const [lo,setLo] = useState(null);
+    const [ard,setArd] = useState([]);
     const Predict = async () =>{
         setLo(<Load/>);
        await axios.post("/predict",{
             dat : selected
         })
         .then((res)=>{
-            output = res.data.value;
-            console.log(res);
+            // output = res.data.value[0][0];
+            // res.split(',')
+            // JSON.parse(res.data.key[1]);
+            var s = "";
+            const ne =  res.data.key;
+            const ar = ne.split(',');
+            let st = ar[0].replace('[','');
+            st = st.replace("'","");
+            st = st.replace("'","");
+            output = st;
+            let rArray = [];
+            let sop = ar[1];
+            sop = sop.replace('[','');
+            sop = sop.replace("'","");
+            sop = sop.replace("'","");
+            rArray.push(sop);
+            sop = ar[2];
+            sop = sop.replace("'","");
+            sop = sop.replace("'","");
+            rArray.push(sop);
+            sop = ar[3];
+            sop = sop.replace("'","");
+            sop = sop.replace("'","");
+            rArray.push(sop);
+            sop = ar[4];
+            sop = sop.replace(']','');
+            sop = sop.replace("'","");
+            sop = sop.replace("'","");
+            rArray.push(sop);
+            console.log(rArray);
+            setArd(rArray);
             setLo(null);
         })
     }
@@ -88,10 +118,25 @@ function Predictor(props) {
             </div>
             <div className="diseases_box_selected">
             <div className="diseases_box_selected_top">
-                        <h3 id="thro">Predicted Diseses</h3>
+                        <h3 id="thro">Predicted Disese</h3>
                     </div>
                     <div className="diseases_box_selected_middle" id="sco">
                         <h4>{output}</h4>
+                    </div>
+            </div>
+            <div className="diseases_box_selected">
+            <div className="diseases_box_selected_top">
+                        <h3 id="thro">Precautions To be Taken</h3>
+                    </div>
+                    <div className="diseases_box_selected_middle" id="sco">
+                    {
+                        ard.map(res=>{
+                            return(
+
+                        <h4>{res}</h4>
+                            )
+                        })
+                    }
                     </div>
             </div>
       </Modal.Body>

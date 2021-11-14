@@ -78,7 +78,7 @@ data_dict = {
     "symptom_index": symptom_index,
     "predictions_classes": encoder.classes_
 }
-
+arr = []
 def predictDisease(symptoms):
     symptoms = symptoms.split(",")
 #     print(symptoms)
@@ -98,8 +98,9 @@ def predictDisease(symptoms):
         if(final_prediction== precautions[i][0]):
             x+=i
             break
-
+    for i in range(4):
+        arr.append(precautions[x][i+1])
     return  final_prediction
 
-print(predictDisease(s))
+print([predictDisease(s),arr])
 
