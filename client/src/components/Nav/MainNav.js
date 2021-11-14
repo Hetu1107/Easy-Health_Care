@@ -34,9 +34,6 @@ function MainNav () {
                             <Link to = "/">Predictor</Link>
                         </Nav.Link>
                         <Nav.Link className = "nav_item">
-                            <Link to = "/">Global-talk</Link>
-                        </Nav.Link>
-                        <Nav.Link className = "nav_item">
                             <Link to = "user">Appoint-ment</Link>
                         </Nav.Link>
                         <Nav.Link className = "nav_item">

@@ -93,7 +93,6 @@ function User (props) {
                     </div>
                     <div className = "Profile_page_of_users_middle_head">
                         <div className = "Profile_page_of_users_middle_head_div_one">
-                            <button>Global-Chat</button>
                             <button onClick = {() => setModalShow(true)}>Predictor</button>
                         </div>
                         <div className = "Profile_page_of_users_middle_head_div_two">
