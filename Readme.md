@@ -79,6 +79,9 @@ Numpy, Pandas, Sklearn, React.js, Node-JS, Socket.io, Ganache, HTML, CSS
     https://hospital-model.herokuapp.com/
 
 ```
+## [Deployed - App](https://hospital-model.herokuapp.com/)
+
+<br/>
 
 ## Problems faced
 
