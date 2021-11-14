@@ -88,6 +88,7 @@ function Predictor(props) {
             <div className="search_box">
                 <input type="text" placeholder="search here..." onChange={(e)=>{
                     setSearch(e.target.value)
+                    searchFilter()
                     
                 }}/>
             </div>
