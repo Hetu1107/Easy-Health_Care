@@ -1,0 +1,70 @@
+.register_page{
+    width: 90vw;
+    min-height: 90vh;
+    max-height: fit-content;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    margin-top: 10px;
+}
+.register_page_top{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+    height: fit-content;
+}
+.register_page_top button{
+    width: 45%;
+    height: 45px;
+    color: white;
+    background: #202940;
+  box-shadow: 0 1px 4px 0 rgb(0 0 0 / 14%);
+  cursor: pointer;
+  transition: all 500ms ease;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+
+.register_page_top .active{
+    background-image: linear-gradient(
+    60deg,
+    rgb(123, 31, 162),
+    rgb(145, 63, 158)
+  );
+  box-shadow: 0 4px 20px 0 rgb(0 0 0 / 14%),
+    0 7px 10px -5px rgb(156 39 176 / 40%);
+}
+
+.signup_form{
+    width: 100%;
+    height: fit-content;
+    padding: 5px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#sign-up{
+    width: 80vw;
+    min-width: 100%;
+    height: 100%;
+    margin-top: 50px;
+    padding: 30px 10px;
+    background-color: #202940;
+    border-radius: 5px;
+}
+.firebase{
+    margin: 5px 5px;
+}
+
+.firebasemeta{
+    width: 100%;
+    margin: 5px 5px;
+    margin-top: 30px;
+}
+.firebasemeta:hover{
+    opacity: 0.7;
+}

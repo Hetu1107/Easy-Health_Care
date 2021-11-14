@@ -1,9 +1,10 @@
-import React from "react";
-import '../../style/Home.css'
+import React,{useRef} from "react";
+import '../../style/Home.css';
 import { Carousel, Form, Button, FloatingLabel } from "react-bootstrap";
 import src from "../../assets/images/health.svg";
 import { useState, useEffect } from "react";
 import MainNav from "../Nav/MainNav";
+import emailjs from "emailjs-com";
 
 // photos of the slider src and time intervals 
 const Photos = [
@@ -25,7 +26,18 @@ const Photos = [
 ];
 function Home() {
   const [index, setIndex] = useState(0);
+  const form = useRef();
 
+  const send_email = (e) =>{
+      e.preventDefault();
+      emailjs.sendForm('service_jsvwrap', 'template_6y07sra', form.current, 'user_XE2DNXIsyHS8NWRVKktZP')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+      e.target.reset();
+  }
   useEffect(() => {
     const items = document.querySelectorAll(".accordion button");
 
@@ -206,12 +218,13 @@ function Home() {
             <h1>Contact-Us</h1>
           </div>
           <div className="contact_us_form_body">
-            <Form>
+            <Form onSubmit={(e)=>send_email(e)} ref={form}>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Mobile No.</Form.Label>
                 <Form.Control
                   type="number"
                   placeholder="Enter Your Mobile no.."
+                  name = "from_number"
                 />
                 <Form.Text className="text-muted">
                   We'll never share your number with anyone else.
@@ -221,12 +234,13 @@ function Home() {
                 <Form.Control
                   as="textarea"
                   placeholder="Leave a comment here"
+                  name = "message"
                   style={{ height: "100px" }}
                 />
               </FloatingLabel>
-              <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Group className="mb-3" controlId="formBasicEmail" >
                 <Form.Label>Name</Form.Label>
-                <Form.Control type="text" placeholder="Enter you Name.." />
+                <Form.Control type="text" placeholder="Enter you Name.." name="from_name"/>
               </Form.Group>
               <Button variant="primary" type="submit" id="front_submit">
                 Submit
