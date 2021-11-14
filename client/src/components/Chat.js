@@ -55,7 +55,7 @@ function Chat (props) {
     return (
         <div className = "main_chat_component">
             <div className = "main_chat_head">
-                <h3>Name Of Doc.</h3>
+                <h3>Private Room</h3>
                 <button
                     onClick = {() =>
                         leaveRoom(props.location.state.roomId, props.location.state.userId)
