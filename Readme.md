@@ -61,7 +61,7 @@
 -We also tried to send request to doctor, whenever some patient wants to join room, but were not able to complete it.
 ```
 <p align="center">
-<img src="./images/one.png"/>
+<img src="./images/five.jpeg"/>
 </p>
 
 # Feature 3
@@ -73,7 +73,7 @@
 
 ```
 <p align="center">
-<img src="./images/five.jpeg"/>
+<img src="./images/one.png"/>
 </p>
 
 
