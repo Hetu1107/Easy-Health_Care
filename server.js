@@ -133,17 +133,6 @@ io.on("connection", (socket) => {
   //   socket.leave(roomId);
   // });
 
-  socket.on("send-request", (roomId, userId) => {
-    console.log("requested for entry", roomId);
-    socket.join(roomId);
-    socket.broadcast.to(roomId).emit("requested", userId);
-  });
-
-  socket.on("allow-entry", (roomId, userId) => {
-    console.log("entry allowed");
-    io.emit("allowed", userId);
-  });
-
   socket.on("leave-room", (roomId, userId) => {
     console.log("left the room", roomId, userId);
     socket.leave(roomId);
