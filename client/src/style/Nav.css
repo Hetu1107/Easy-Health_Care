@@ -131,6 +131,9 @@ a:hover{
     color: black;
     margin-left: 2px;
 }
+#thro{
+    font-weight: 500;
+}
 .diseases_box_selected_middle{
     width: 95%;
     display: flex;
@@ -164,4 +167,30 @@ a:hover{
 }
 .diseases_box_selected_middle h4 i:hover{
     color: rgb(255, 77, 77);
+}
+#sco{
+    background: linear-gradient(
+60deg,#288c6c,#4ea752);
+}
+
+#load{
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 500000000000000;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.644);
+    left: 0;
+}
+#spinner{
+    position: relative;
+    top: 45%;
+    width: 80px;
+    height: 80px;
+    margin: 0;
+    padding: 0;
 }
