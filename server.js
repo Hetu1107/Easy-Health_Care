@@ -43,6 +43,32 @@ app.post("/py", async (req, res, next) => {
     res.end();
   });
 });
+let ansss = "";
+app.post("/predict", async (req, res, next) => {
+  let val = req.body.dat;
+  let finalString="";
+  finalString+=val[0];
+  for(var i =1;i<val.length;i++){
+    finalString+=`,${val[i]}`;
+  }
+  var childpython = null;
+  await new Promise((resolve, reject) => {
+    childpython = spawn("python", ["diseasePrediction.py", finalString]);
+    childpython.stdout.on("data", (data) => {
+      ansss = ""
+      ansss+=data;
+      console.log(`${data}`);
+      resolve(true);
+    });
+    // childpython.stderr.on("data", (data) => {
+    //   console.error(`stderr: ${data}`);
+    //   resolve(true);
+    // });
+  }).then(() => {
+    res.json({ value: ansss, val: val });
+    res.end();
+  });
+});
 
 app.post("/py", async (req, res, next) => {
   let val = req.body.message;
